@@ -81,11 +81,20 @@ namespace Inheritence
 
                 case 6:
                     Console.Clear();
+                    GetCarSounds(Rangers, Hondas, Skodas);
+                    break;
+
+                case 7:
+                    Console.Clear();
+                    //Filter cars
+                    break;
+
+                default:
+                    Console.Clear();
                     Console.WriteLine("Thank you for using CarLTD");
                     Thread.Sleep(1000);
                     Environment.Exit(0);
                     break;
-
             }
 
 
@@ -98,7 +107,9 @@ namespace Inheritence
             Console.WriteLine("3.Display all RangeRovers");
             Console.WriteLine("4.Display all Hondas");
             Console.WriteLine("5.Add a car");
-            Console.WriteLine("6.Exit");
+            Console.WriteLine("6.See Car sounds");
+            Console.WriteLine("7.Filter Cars");
+            Console.WriteLine("Press enter to exit");
         }
 
         static void DisplayAllCars(List<RangeRover> Rangers, List<Honda> Hondas, List<Skoda> Skodas)
@@ -109,7 +120,7 @@ namespace Inheritence
             for (int i = 0; i < Rangers.Count; i++)
             {
                 Console.WriteLine($"Range Rover -- VinNumber:{Rangers[i].VinNumber}, Number Plate:{Rangers[i].NumberPlate}, Number Of doors:{Rangers[i].NumberOfDoors}" +
-                    $"Colour:{Rangers[i].Colour}");
+                    $" Colour:{Rangers[i].Colour}");
             }
 
             Console.WriteLine("");
@@ -120,7 +131,7 @@ namespace Inheritence
             for (int i = 0; i < Skodas.Count; i++)
             {
                 Console.WriteLine($"Skodas -- VinNumber:{Skodas[i].VinNumber}, Number Plate:{Skodas[i].NumberPlate}, Number Of doors:{Skodas[i].NumberOfDoors}" +
-                    $"Colour:{Skodas[i].Colour}");
+                    $" Colour:{Skodas[i].Colour}");
             }
 
             Console.WriteLine("");
@@ -131,7 +142,7 @@ namespace Inheritence
             for (int i = 0; i < Hondas.Count; i++)
             {
                 Console.WriteLine($"Hondas -- VinNumber:{Hondas[i].VinNumber}, Number Plate:{Hondas[i].NumberPlate}, Number Of doors:{Hondas[i].NumberOfDoors}" +
-                    $"Colour:{Hondas[i].Colour}");
+                    $" Colour:{Hondas[i].Colour}");
             }
 
             Console.Write("Press enter to exit back to menu...");
@@ -148,7 +159,7 @@ namespace Inheritence
             for (int i = 0; i < Skodas.Count; i++)
             {
                 Console.WriteLine($"Skodas -- VinNumber:{Skodas[i].VinNumber}, Number Plate:{Skodas[i].NumberPlate}, Number Of doors:{Skodas[i].NumberOfDoors}" +
-                    $"Colour:{Skodas[i].Colour}");
+                    $" Colour:{Skodas[i].Colour}");
             }
 
             Console.Write("Press enter to exit back to menu...");
@@ -165,7 +176,7 @@ namespace Inheritence
             for (int i = 0; i < Rangers.Count; i++)
             {
                 Console.WriteLine($"Range Rover -- VinNumber:{Rangers[i].VinNumber}, Number Plate:{Rangers[i].NumberPlate}, Number Of doors:{Rangers[i].NumberOfDoors}" +
-                    $"Colour:{Rangers[i].Colour}");
+                    $" Colour:{Rangers[i].Colour}");
             }
             Console.Write("Press enter to exit back to menu...");
             Console.ReadLine();
@@ -181,7 +192,7 @@ namespace Inheritence
             for (int i = 0; i < Hondas.Count; i++)
             {
                 Console.WriteLine($"Hondas -- VinNumber:{Hondas[i].VinNumber}, Number Plate:{Hondas[i].NumberPlate}, Number Of doors:{Hondas[i].NumberOfDoors}" +
-                    $"Colour:{Hondas[i].Colour}");
+                    $" Colour:{Hondas[i].Colour}");
             }
 
             Console.Write("Press enter to exit back to menu...");
@@ -196,31 +207,32 @@ namespace Inheritence
             Console.WriteLine("2.Ranger");
             Console.WriteLine("3.Honda");
 
-            while (true)
+            int Choice = IntegerValidation("Please enter number of car brand yo want to add");
+            switch (Choice)
             {
-                int Choice = IntegerValidation("Please enter number of car brand yo want to add");
-                switch(Choice)
-                {
-                    case 1:
-                        Console.Clear();
-                        Skodas = CreateASkoda(Skodas);//SKODA 
-                        break;
+                case 1:
+                    Console.Clear();
+                    Skodas = CreateASkoda(Skodas);//SKODA 
+                    break;
 
-                    case 2:
-                        Console.Clear();
-                        Rangers = CreateRanger(Rangers);//RANGERS
-                        break;
+                case 2:
+                    Console.Clear();
+                    Rangers = CreateRanger(Rangers);//RANGERS
+                    break;
 
-                    case 3:
-                        Console.Clear();
-                        Hondas = CreateHonda(Hondas);//HONDAS
-                        break;
+                case 3:
+                    Console.Clear();
+                    Hondas = CreateHonda(Hondas);//HONDAS
+                    break;
 
-                    default:
-                        Choice = 0;
-                        break;
-                }
+                default:
+                    Choice = 0;
+                    break;
+            
             }
+
+            Console.Clear();
+            Menu(Rangers, Hondas, Skodas);
         }
 
         static List<Skoda> CreateASkoda(List<Skoda> skodas)
@@ -286,8 +298,6 @@ namespace Inheritence
             return Skodas;
         }
 
-        
-
         static List<RangeRover> CreateRangers(List<RangeRover> RangeRovers)
         {
             int NumberOfRRs = rng.Next(0, 100);
@@ -324,6 +334,7 @@ namespace Inheritence
             else if (rn <= 100)
                 skoda.NumberOfDoors = 4;
             skoda.NumberPlate = GetNumberPlate();
+            skoda.Colour = DetermineColour();
 
             return skoda;
         }
@@ -337,7 +348,7 @@ namespace Inheritence
                 rangeRover.NumberOfDoors = 2;
             else if (rn <= 100)
                 rangeRover.NumberOfDoors = 4;
-
+            rangeRover.Colour = DetermineColour();
             rangeRover.NumberPlate = GetNumberPlate();
 
             return rangeRover;
@@ -347,6 +358,7 @@ namespace Inheritence
         {
             honda.VinNumber = GetFalseVin();
             honda.NumberPlate = GetNumberPlate();
+            honda.Colour = DetermineColour();
 
             int rn = rng.Next(0, 100);
             if (rn > 50)
@@ -357,6 +369,23 @@ namespace Inheritence
             return honda;
         }
 
+        static void GetCarSounds(List<RangeRover> Rangers, List<Honda> Hondas, List<Skoda> Skodas)
+        {
+            Honda honda = new Honda();
+            RangeRover ranger = new RangeRover();
+            Skoda skoda = new Skoda();
+
+            Console.WriteLine($"Skoda -- {skoda.CarSound()}");
+            Console.WriteLine();
+            Console.WriteLine($"RangeRovers -- {ranger.CarSound()}");
+            Console.WriteLine();
+            Console.WriteLine($"Honda -- {honda.CarSound()}");
+            Console.WriteLine();
+            Console.WriteLine("Please press enter to go back to menu...");
+            Console.ReadKey();
+
+            Menu(Rangers, Hondas, Skodas);
+        }
 
         static string GetNumberPlate()
         {
@@ -366,25 +395,12 @@ namespace Inheritence
                 "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", 
                 "U", "V", "W", "X", "Y", "Z" };
 
-            bool numbersGiven = false;
+            NumberPlate = alphabetArray[rng.Next(0, alphabetArray.Length-1)] + alphabetArray[rng.Next(0,alphabetArray.Length-1)];
+            NumberPlate = NumberPlate + rng.Next(51, 72);
+            NumberPlate = NumberPlate + " ";
+            NumberPlate = NumberPlate + alphabetArray[rng.Next(0, alphabetArray.Length - 1)] + alphabetArray[rng.Next(0, alphabetArray.Length - 1)] + alphabetArray[rng.Next(0, alphabetArray.Length - 1)];
 
-            for (int i = 0; i <= 8; i++)
-            {
-                if (NumberPlate.Length < 3)
-                    NumberPlate = NumberPlate + alphabetArray[rng.Next(0, 25)];
-                else if (NumberPlate.Length > 2 && NumberPlate.Length < 5 && numbersGiven==false)
-                {
-                    NumberPlate = NumberPlate + rng.Next(51, 73).ToString();
-                    numbersGiven = true;
-                }
-                //or 02 - 23
-                else if (NumberPlate.Length == 5)
-                    NumberPlate = NumberPlate + " ";
-                else if (NumberPlate.Length > 5)
-                    NumberPlate = NumberPlate + alphabetArray[rng.Next(0, 25)];
-            }
-
-            return NumberPlate;
+                return NumberPlate;
         }
 
         static int IntegerValidation(string Message)
@@ -409,7 +425,7 @@ namespace Inheritence
 
         static string DetermineColour()
         {
-            int Num = rng.Next(0, 5);
+            int Num = rng.Next(0, 7);
 
             switch (Num)
             {
@@ -430,12 +446,59 @@ namespace Inheritence
 
                 case 5:
                     return "White";
-                    break;
+
+                case 6:
+                    return "Black";
+
+                case 7:
+                    return "Yellow"; 
 
                 default:
                     return "Indigo";
+                    
+            }
+        }
+
+        static void FilterCarsMenu(List<RangeRover> Rangers, List<Honda> Hondas, List<Skoda> Skodas)
+        {
+            DisplayFilterMenu();
+            Console.WriteLine("Select which filter");
+            int Choice;
+            do
+            {
+                Choice = IntegerValidation("Please select a filter option");
+
+            } while (Choice > 4 || Choice < 0);
+
+            switch (Choice)
+            {
+                case 1:
+                    //filter by vin
+                    break;
+                case 2:
+                    //filter by colour
+                    break;
+                case 3:
+                    //filter by number plate
+                    break;
+
+                default:
+                    Menu(Rangers, Hondas, Skodas);
                     break;
             }
+        }
+
+        static void DisplayFilterMenu()
+        {
+            Console.WriteLine("1.Vin");
+            Console.WriteLine("2.Colour");
+            Console.WriteLine("3.Number Plate");
+            Console.WriteLine("4.");
+        }
+
+        static void FilterByColour(List<RangeRover> Rangers, List<Honda> Hondas, List<Skoda> Skodas)
+        {
+
         }
     }
 }
