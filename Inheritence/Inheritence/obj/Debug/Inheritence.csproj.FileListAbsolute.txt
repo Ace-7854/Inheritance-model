@@ -1,0 +1,16 @@
+\\germanium\students$\y7\17Ford.Edison\y13\Models\Inheritence\Inheritence\obj\Debug\Inheritence.csproj.AssemblyReference.cache
+\\germanium\students$\y7\17Ford.Edison\y13\Models\Inheritence\Inheritence\obj\Debug\Inheritence.csproj.SuggestedBindingRedirects.cache
+\\germanium\students$\y7\17Ford.Edison\y13\Models\Inheritence\Inheritence\obj\Debug\Inheritence.csproj.CoreCompileInputs.cache
+\\germanium\students$\y7\17Ford.Edison\y13\Models\Inheritence\Inheritence\bin\Debug\Inheritence.exe.config
+\\germanium\students$\y7\17Ford.Edison\y13\Models\Inheritence\Inheritence\bin\Debug\Inheritence.exe
+\\germanium\students$\y7\17Ford.Edison\y13\Models\Inheritence\Inheritence\bin\Debug\Inheritence.pdb
+\\germanium\students$\y7\17Ford.Edison\y13\Models\Inheritence\Inheritence\obj\Debug\Inheritence.exe
+\\germanium\students$\y7\17Ford.Edison\y13\Models\Inheritence\Inheritence\obj\Debug\Inheritence.pdb
+U:\y13\Models\Inheritence\Inheritence\bin\Debug\Inheritence.exe.config
+U:\y13\Models\Inheritence\Inheritence\bin\Debug\Inheritence.exe
+U:\y13\Models\Inheritence\Inheritence\bin\Debug\Inheritence.pdb
+U:\y13\Models\Inheritence\Inheritence\obj\Debug\Inheritence.csproj.AssemblyReference.cache
+U:\y13\Models\Inheritence\Inheritence\obj\Debug\Inheritence.csproj.SuggestedBindingRedirects.cache
+U:\y13\Models\Inheritence\Inheritence\obj\Debug\Inheritence.csproj.CoreCompileInputs.cache
+U:\y13\Models\Inheritence\Inheritence\obj\Debug\Inheritence.exe
+U:\y13\Models\Inheritence\Inheritence\obj\Debug\Inheritence.pdb
